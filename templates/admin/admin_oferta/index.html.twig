@@ -1,0 +1,50 @@
+{% extends 'menu.html.twig' %}
+
+{% block title %}Hello AdminOfertaController!{% endblock %}
+
+{% block body %}
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Titol</th>
+            <th scope="col">Descripció</th>
+            <th scope="col">Data</th>
+            <th scope="col">Empresa</th>
+            <th scope="col"> <a class="btn btn-primary"
+                        href="{{path("newOferta"
+                        )}}">
+                        Afegir
+                    </a></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for oferta in ofertes %}
+                <tr>
+                <th scope="row">{{oferta.id}}</th>
+                <td>{{oferta.titol}}</td>
+                <td>{{oferta.descripcio}}</td>
+                <td>{{oferta.dataPub|date("Y/m/d")}}</td>
+                <td>{{oferta.empresa}}</td>
+                <th scope="col">
+                    <a class="btn btn-primary"
+                        href="{{path("admin_oferta_modif",
+                            {'id': oferta.id}
+                        )}}">
+                        Modificar
+                    </a>
+                    <a class="btn btn-primary"
+                        href="{{path("admin_oferta_elim",
+                            {'id': oferta.id}
+                        )}}">
+                        Eliminar
+                    </a>
+                </th>
+                </tr>
+            {% endfor %}
+            
+        </tbody>
+    </table>
+    
+{% endblock %}

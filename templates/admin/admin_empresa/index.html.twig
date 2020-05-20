@@ -1,0 +1,51 @@
+{% extends 'menu.html.twig' %}
+
+{% block title %}Hello AdminEmpresaController!{% endblock %}
+
+
+{% block body %}
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Tipus</th>
+            <th scope="col">Correu</th>
+            <th scope="col">Logo</th>
+            <th scope="col"> <a class="btn btn-primary"
+                        href="{{path("newEmpresa"
+                        )}}">
+                        Afegir
+                    </a></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for empresa in empreses %}
+                <tr>
+                <th scope="row">{{empresa.id}}</th>
+                <td>{{empresa.nom}}</td>
+                <td>{{empresa.tipus}}</td>
+                <td>{{empresa.correu}}</td>
+                <td>{{empresa.logo}}</td>
+                <th scope="col">
+                    <a class="btn btn-primary"
+                        href="{{path("admin_empresa_modif",
+                            {'id': empresa.id}
+                        )}}">
+                        Modificar
+                    </a>
+                    <a class="btn btn-primary"
+                        href="{{path("admin_empresa_elim",
+                            {'id': empresa.id}
+                        )}}">
+                        Eliminar
+                    </a>
+                </th>
+                </tr>
+            {% endfor %}
+            
+        </tbody>
+    </table>
+    
+{% endblock %}

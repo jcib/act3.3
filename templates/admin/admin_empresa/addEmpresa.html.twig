@@ -1,0 +1,11 @@
+{% extends 'menu.html.twig' %}
+
+{% block title %}Modifar{% endblock %}
+
+{% block body %}
+        {{form_start(form)}}
+        {{form_widget(form)}}
+        <input type="submit" class = "btn btn-primary" value="Desar">
+        {{form_end(form) }}
+    
+{% endblock %}
